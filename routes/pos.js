@@ -3,7 +3,7 @@
 */
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { printerInsert, printerOut } = require('../controllers/pos');
+const { printerInsert, printerOut, printerReport } = require('../controllers/pos');
 const { validarCampos } = require('../middlewares/validar-campos');
 
 const router = Router();
@@ -15,6 +15,8 @@ router.post('/ingreso', [
     validarCampos], printerInsert);
 
 router.post('/salida', printerOut);
+
+router.post('/report', printerReport);
 
 
 module.exports = router;
